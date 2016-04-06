@@ -1,7 +1,7 @@
 package evansitzes.controllers;
 
 import evansitzes.WordRequest;
-import evansitzes.models.KoreanWordEntity;
+import evansitzes.models.entities.KoreanWordEntity;
 import evansitzes.models.KoreanWordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,7 +42,7 @@ public class KoreanWordController {
     @ResponseBody
     public KoreanWordEntity create(@RequestBody final WordRequest request) {
         KoreanWordEntity entity = new KoreanWordEntity();
-        entity.setKoreanWord(request.getForeignWord());
+        entity.setForeignWord(request.getForeignWord());
         entity.setEnglishWord(request.getEnglishWord());
         entity.setActive(true);
 
