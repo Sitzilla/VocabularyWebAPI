@@ -1,0 +1,12 @@
+/Users/evan/workspace/VocabularyTerms/src/main/java/evansitzes/controllers/JapaneseWordController.java
+/Users/evan/workspace/VocabularyTerms/src/main/java/evansitzes/controllers/KoreanWordController.java
+/Users/evan/workspace/VocabularyTerms/src/main/java/evansitzes/models/repositories/KoreanWordRepository.java
+/Users/evan/workspace/VocabularyTerms/src/main/java/evansitzes/controllers/ChineseWordController.java
+/Users/evan/workspace/VocabularyTerms/src/main/java/evansitzes/models/entities/JapaneseWordEntity.java
+/Users/evan/workspace/VocabularyTerms/src/main/java/evansitzes/requests/WordRequest.java
+/Users/evan/workspace/VocabularyTerms/src/main/java/evansitzes/Application.java
+/Users/evan/workspace/VocabularyTerms/src/main/java/evansitzes/models/entities/KoreanWordEntity.java
+/Users/evan/workspace/VocabularyTerms/src/main/java/evansitzes/models/repositories/ChineseWordRepository.java
+/Users/evan/workspace/VocabularyTerms/src/main/java/evansitzes/models/repositories/JapaneseWordRepository.java
+/Users/evan/workspace/VocabularyTerms/src/main/java/evansitzes/models/entities/ChineseWordEntity.java
+/Users/evan/workspace/VocabularyTerms/src/main/java/evansitzes/models/entities/WordEntity.java
