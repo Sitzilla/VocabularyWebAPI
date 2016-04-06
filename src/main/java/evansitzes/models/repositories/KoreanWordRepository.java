@@ -1,4 +1,4 @@
-package evansitzes.models;
+package evansitzes.models.repositories;
 
 import evansitzes.models.entities.KoreanWordEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

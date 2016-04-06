@@ -1,8 +1,8 @@
 package evansitzes.controllers;
 
+import evansitzes.models.entities.JapaneseWordEntity;
+import evansitzes.models.repositories.JapaneseWordRepository;
 import evansitzes.requests.WordRequest;
-import evansitzes.models.entities.KoreanWordEntity;
-import evansitzes.models.repositories.KoreanWordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,22 +17,22 @@ import java.util.Random;
  * Created by evan on 4/6/16.
  */
 @Controller
-@RequestMapping("/korean")
-public class KoreanWordController {
+@RequestMapping("/japanese")
+public class JapaneseWordController {
 
     @Autowired
-    private KoreanWordRepository koreanWordRepository;
+    private JapaneseWordRepository japaneseWordRepository;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
-    public List<KoreanWordEntity> listAll() {
-        return koreanWordRepository.findAllActive();
+    public List<JapaneseWordEntity> listAll() {
+        return japaneseWordRepository.findAllActive();
     }
 
     @RequestMapping(value = "/random", method = RequestMethod.GET)
     @ResponseBody
-    public KoreanWordEntity getRandom() {
-        List<KoreanWordEntity> list = koreanWordRepository.findAllActive();
+    public JapaneseWordEntity getRandom() {
+        List<JapaneseWordEntity> list = japaneseWordRepository.findAllActive();
         Random randomizer = new Random();
         return list.get(randomizer.nextInt(list.size()));
     }
@@ -40,13 +40,13 @@ public class KoreanWordController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
-    public KoreanWordEntity create(@RequestBody final WordRequest request) {
-        KoreanWordEntity entity = new KoreanWordEntity();
+    public JapaneseWordEntity create(@RequestBody final WordRequest request) {
+        JapaneseWordEntity entity = new JapaneseWordEntity();
         entity.setForeignWord(request.getForeignWord());
         entity.setEnglishWord(request.getEnglishWord());
         entity.setActive(true);
 
-        return koreanWordRepository.save(entity);
+        return japaneseWordRepository.save(entity);
     }
 
 }

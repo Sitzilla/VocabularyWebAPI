@@ -7,6 +7,6 @@ import javax.persistence.Table;
  * Created by evan on 4/6/16.
  */
 @Entity
-@Table(name = "korean_words")
+@Table(name = "chinese_words")
 public class ChineseWordEntity extends WordEntity {
 }

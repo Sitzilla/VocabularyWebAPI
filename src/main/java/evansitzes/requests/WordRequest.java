@@ -1,4 +1,4 @@
-package evansitzes;
+package evansitzes.requests;
 
 /**
  * Created by evan on 4/6/16.
