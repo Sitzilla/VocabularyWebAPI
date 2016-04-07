@@ -8,10 +8,8 @@ import javax.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-//@Table(name = "words")
 public class WordEntity {
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
     private long id;
 
@@ -59,7 +57,7 @@ public class WordEntity {
         this.active = active;
     }
 
-    public String isLevel() {
+    public String getLevel() {
         return level;
     }
 
