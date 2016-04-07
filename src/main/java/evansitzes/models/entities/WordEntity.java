@@ -24,6 +24,9 @@ public class WordEntity {
     @Column (name="active")
     private boolean active;
 
+    @Column (name="level")
+    private String level;
+
     public long getId() {
         return id;
     }
@@ -54,5 +57,13 @@ public class WordEntity {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public String isLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 }
