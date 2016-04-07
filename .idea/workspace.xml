@@ -2,21 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6270203-8506-4eb8-bf37-12e316c15dff" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/evansitzes/ControllersBLL.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/evansitzes/exceptions/AuthorizationException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/evansitzes/helpers/ValidateAuthToken.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/WordRepository.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/evansitzes/ControllersBLL.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/evansitzes/ControllersBLL.java" afterPath="$PROJECT_DIR$/src/main/java/evansitzes/ControllerBLL.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/evansitzes/controllers/ChineseWordController.class" afterPath="$PROJECT_DIR$/target/classes/evansitzes/controllers/ChineseWordController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/evansitzes/controllers/JapaneseWordController.class" afterPath="$PROJECT_DIR$/target/classes/evansitzes/controllers/JapaneseWordController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/evansitzes/controllers/KoreanWordController.class" afterPath="$PROJECT_DIR$/target/classes/evansitzes/controllers/KoreanWordController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/evansitzes/requests/WordRequest.class" afterPath="$PROJECT_DIR$/target/classes/evansitzes/requests/WordRequest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/evansitzes/models/repositories/ChineseWordRepository.class" afterPath="$PROJECT_DIR$/target/classes/evansitzes/models/repositories/ChineseWordRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/evansitzes/models/repositories/JapaneseWordRepository.class" afterPath="$PROJECT_DIR$/target/classes/evansitzes/models/repositories/JapaneseWordRepository.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VocabularyTerms.iml" afterPath="$PROJECT_DIR$/VocabularyTerms.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/evansitzes/controllers/ChineseWordController.java" afterPath="$PROJECT_DIR$/src/main/java/evansitzes/controllers/ChineseWordController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/evansitzes/controllers/JapaneseWordController.java" afterPath="$PROJECT_DIR$/src/main/java/evansitzes/controllers/JapaneseWordController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/evansitzes/controllers/KoreanWordController.java" afterPath="$PROJECT_DIR$/src/main/java/evansitzes/controllers/KoreanWordController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/KoreanWordRepository.java" afterPath="$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/KoreanWordRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/evansitzes/requests/WordRequest.java" afterPath="$PROJECT_DIR$/src/main/java/evansitzes/requests/WordRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/ChineseWordRepository.java" afterPath="$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/ChineseWordRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/JapaneseWordRepository.java" afterPath="$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/JapaneseWordRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
     </list>
@@ -44,8 +42,8 @@
       <file leaf-file-name="KoreanWordController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/controllers/KoreanWordController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state relative-caret-position="686">
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,16 +51,70 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ControllersBLL.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/ControllersBLL.java">
+      <file leaf-file-name="JapaneseWordController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/controllers/JapaneseWordController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="45" selection-end-column="0" />
+            <state relative-caret-position="686">
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#461#462#0" expanded="true" />
-                <element signature="e#505#506#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControllerBLL.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/ControllerBLL.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#459#460#0" expanded="true" />
+                <element signature="e#503#504#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChineseWordRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/ChineseWordRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="79" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChineseWordController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/controllers/ChineseWordController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="626">
+              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KoreanWordRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/KoreanWordRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="79" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JapaneseWordRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/JapaneseWordRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="81" selection-start-line="8" selection-start-column="81" selection-end-line="8" selection-end-column="81" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -94,10 +146,6 @@
         <option value="$PROJECT_DIR$/src/main/java/evansitzes/models/entities/KoreanWordEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/evansitzes/models/entities/ChineseWordEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/evansitzes/models/entities/JapaneseWordEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/evansitzes/controllers/JapaneseWordController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/evansitzes/controllers/ChineseWordController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/JapaneseWordRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/ChineseWordRepository.java" />
         <option value="$PROJECT_DIR$/VocabularyTerms.iml" />
         <option value="$PROJECT_DIR$/src/main/java/evansitzes/Application.java" />
         <option value="$PROJECT_DIR$/Procfile" />
@@ -110,8 +158,13 @@
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/KoreanWordRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/WordRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/evansitzes/ControllersBLL.java" />
+        <option value="$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/ChineseWordRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/JapaneseWordRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/evansitzes/controllers/ChineseWordController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/evansitzes/controllers/JapaneseWordController.java" />
         <option value="$PROJECT_DIR$/src/main/java/evansitzes/controllers/KoreanWordController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/evansitzes/ControllersBLL.java" />
+        <option value="$PROJECT_DIR$/src/main/java/evansitzes/ControllerBLL.java" />
       </list>
     </option>
   </component>
@@ -743,7 +796,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45223576" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45223576" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -781,31 +834,13 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/evansitzes/controllers/KoreanWordController.java</url>
-          <line>47</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/evansitzes/controllers/KoreanWordController.java</url>
-          <line>63</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/evansitzes/controllers/KoreanWordController.java</url>
-          <line>55</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/evansitzes/ControllersBLL.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/evansitzes/ControllerBLL.java</url>
           <line>23</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/evansitzes/ControllersBLL.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/evansitzes/ControllerBLL.java</url>
           <line>34</line>
           <properties />
           <option name="timeStamp" value="12" />
@@ -1026,13 +1061,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/controllers/JapaneseWordController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.1.6.RELEASE/spring-beans-4.1.6.RELEASE.jar!/org/springframework/beans/factory/support/AbstractBeanFactory.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -1051,14 +1079,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/controllers/ChineseWordController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -1163,22 +1183,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/ChineseWordRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/JapaneseWordRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/helpers/ValidateAuthToken.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1205,14 +1209,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/KoreanWordRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="80" selection-start-line="8" selection-start-column="80" selection-end-line="8" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/WordRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1231,24 +1227,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/KoreanWordRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="79" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/JapaneseWordRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="81" selection-start-line="8" selection-start-column="81" selection-end-line="8" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/models/repositories/ChineseWordRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="79" selection-start-line="8" selection-start-column="79" selection-end-line="8" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/controllers/KoreanWordController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state relative-caret-position="686">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/ControllersBLL.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/controllers/JapaneseWordController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="45" selection-end-column="0" />
+        <state relative-caret-position="686">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-            <element signature="e#505#506#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/controllers/ChineseWordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/evansitzes/ControllerBLL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#459#460#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,17 +1,15 @@
 package evansitzes.controllers;
 
+import evansitzes.ControllerBLL;
 import evansitzes.models.entities.JapaneseWordEntity;
+import evansitzes.models.entities.WordEntity;
 import evansitzes.models.repositories.JapaneseWordRepository;
 import evansitzes.requests.WordRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by evan on 4/6/16.
@@ -23,30 +21,46 @@ public class JapaneseWordController {
     @Autowired
     private JapaneseWordRepository japaneseWordRepository;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    private ControllerBLL controllerBLL;
+
+    @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public List<JapaneseWordEntity> listAll() {
         return japaneseWordRepository.findAllActive();
     }
 
-    @RequestMapping(value = "/random", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public JapaneseWordEntity getRandom() {
-        List<JapaneseWordEntity> list = japaneseWordRepository.findAllActive();
-        Random randomizer = new Random();
-        return list.get(randomizer.nextInt(list.size()));
+    public JapaneseWordEntity getWord(@PathVariable(value="id") final long id) {
+        return japaneseWordRepository.findOne(id);
     }
 
-
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/random", method = RequestMethod.GET)
     @ResponseBody
-    public JapaneseWordEntity create(@RequestBody final WordRequest request) {
-        JapaneseWordEntity entity = new JapaneseWordEntity();
-        entity.setForeignWord(request.getForeignWord());
-        entity.setEnglishWord(request.getEnglishWord());
-        entity.setActive(true);
+    public WordEntity getRandom() {
+        controllerBLL = new ControllerBLL(japaneseWordRepository);
+        return controllerBLL.getRandom(japaneseWordRepository.findAllActive());
+    }
 
-        return japaneseWordRepository.save(entity);
+    @RequestMapping(method = RequestMethod.POST)
+    @ResponseBody
+    public Object create(@RequestBody final WordRequest request, @RequestHeader(value="Authorization") String authToken) {
+        controllerBLL = new ControllerBLL(japaneseWordRepository);
+        return controllerBLL.buildEntity(new JapaneseWordEntity(), request, authToken);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @ResponseBody
+    public Object update(@PathVariable(value="id") final long id, @RequestBody final WordRequest request, @RequestHeader(value="Authorization") final String authToken) {
+        controllerBLL = new ControllerBLL(japaneseWordRepository);
+        return controllerBLL.buildEntity(japaneseWordRepository.findOne(id), request, authToken);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public Object deactivate(@PathVariable(value="id") final long id, @RequestHeader(value="Authorization") final String authToken) {
+        controllerBLL = new ControllerBLL(japaneseWordRepository);
+        return controllerBLL.deactivate(japaneseWordRepository.findOne(id), authToken);
     }
 
 }

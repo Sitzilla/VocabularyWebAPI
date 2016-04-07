@@ -1,17 +1,15 @@
 package evansitzes.controllers;
 
+import evansitzes.ControllerBLL;
 import evansitzes.models.entities.ChineseWordEntity;
+import evansitzes.models.entities.WordEntity;
 import evansitzes.models.repositories.ChineseWordRepository;
 import evansitzes.requests.WordRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by evan on 4/6/16.
@@ -20,33 +18,50 @@ import java.util.Random;
 @RequestMapping("/chinese")
 public class ChineseWordController {
 
+
     @Autowired
     private ChineseWordRepository chineseWordRepository;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    private ControllerBLL controllerBLL;
+
+    @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public List<ChineseWordEntity> listAll() {
         return chineseWordRepository.findAllActive();
     }
 
-    @RequestMapping(value = "/random", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public ChineseWordEntity getRandom() {
-        List<ChineseWordEntity> list = chineseWordRepository.findAllActive();
-        Random randomizer = new Random();
-        return list.get(randomizer.nextInt(list.size()));
+    public ChineseWordEntity getWord(@PathVariable(value="id") final long id) {
+        return chineseWordRepository.findOne(id);
     }
 
-
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "/random", method = RequestMethod.GET)
     @ResponseBody
-    public ChineseWordEntity create(@RequestBody final WordRequest request) {
-        ChineseWordEntity entity = new ChineseWordEntity();
-        entity.setForeignWord(request.getForeignWord());
-        entity.setEnglishWord(request.getEnglishWord());
-        entity.setActive(true);
+    public WordEntity getRandom() {
+        controllerBLL = new ControllerBLL(chineseWordRepository);
+        return controllerBLL.getRandom(chineseWordRepository.findAllActive());
+    }
 
-        return chineseWordRepository.save(entity);
+    @RequestMapping(method = RequestMethod.POST)
+    @ResponseBody
+    public Object create(@RequestBody final WordRequest request, @RequestHeader(value="Authorization") String authToken) {
+        controllerBLL = new ControllerBLL(chineseWordRepository);
+        return controllerBLL.buildEntity(new ChineseWordEntity(), request, authToken);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @ResponseBody
+    public Object update(@PathVariable(value="id") final long id, @RequestBody final WordRequest request, @RequestHeader(value="Authorization") final String authToken) {
+        controllerBLL = new ControllerBLL(chineseWordRepository);
+        return controllerBLL.buildEntity(chineseWordRepository.findOne(id), request, authToken);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public Object deactivate(@PathVariable(value="id") final long id, @RequestHeader(value="Authorization") final String authToken) {
+        controllerBLL = new ControllerBLL(chineseWordRepository);
+        return controllerBLL.deactivate(chineseWordRepository.findOne(id), authToken);
     }
 
 }

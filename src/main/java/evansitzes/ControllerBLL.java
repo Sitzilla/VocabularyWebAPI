@@ -12,11 +12,11 @@ import static evansitzes.helpers.ValidateAuthToken.assertAuthTokenIsValid;
 /**
  * Created by evan on 4/7/16.
  */
-public class ControllersBLL {
+public class ControllerBLL {
 
     private final WordRepository repository;
 
-    public ControllersBLL(final WordRepository repository) {
+    public ControllerBLL(final WordRepository repository) {
         this.repository = repository;
     }
 

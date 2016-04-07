@@ -1,6 +1,6 @@
 package evansitzes.controllers;
 
-import evansitzes.ControllersBLL;
+import evansitzes.ControllerBLL;
 import evansitzes.models.entities.KoreanWordEntity;
 import evansitzes.models.entities.WordEntity;
 import evansitzes.models.repositories.KoreanWordRepository;
@@ -21,7 +21,7 @@ public class KoreanWordController {
     @Autowired
     private KoreanWordRepository koreanWordRepository;
 
-    private ControllersBLL controllersBLL;
+    private ControllerBLL controllerBLL;
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
@@ -38,33 +38,29 @@ public class KoreanWordController {
     @RequestMapping(value = "/random", method = RequestMethod.GET)
     @ResponseBody
     public WordEntity getRandom() {
-        controllersBLL = new ControllersBLL(koreanWordRepository);
-        return controllersBLL.getRandom(koreanWordRepository.findAllActive());
+        controllerBLL = new ControllerBLL(koreanWordRepository);
+        return controllerBLL.getRandom(koreanWordRepository.findAllActive());
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public Object create(@RequestBody final WordRequest request, @RequestHeader(value="Authorization") String authToken) {
-        KoreanWordEntity entity = new KoreanWordEntity();
-        controllersBLL = new ControllersBLL(koreanWordRepository);
-        return controllersBLL.buildEntity(entity, request, authToken);
+        controllerBLL = new ControllerBLL(koreanWordRepository);
+        return controllerBLL.buildEntity(new KoreanWordEntity(), request, authToken);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public Object update(@PathVariable(value="id") final long id, @RequestBody final WordRequest request, @RequestHeader(value="Authorization") final String authToken) {
-        KoreanWordEntity entity = koreanWordRepository.findOne(id);
-        controllersBLL = new ControllersBLL(koreanWordRepository);
-        return controllersBLL.buildEntity(entity, request, authToken);
+        controllerBLL = new ControllerBLL(koreanWordRepository);
+        return controllerBLL.buildEntity(koreanWordRepository.findOne(id), request, authToken);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public Object deactivate(@PathVariable(value="id") final long id, @RequestHeader(value="Authorization") final String authToken) {
-        KoreanWordEntity entity = koreanWordRepository.findOne(id);
-        controllersBLL = new ControllersBLL(koreanWordRepository);
-        return controllersBLL.deactivate(entity, authToken);
-
+        controllerBLL = new ControllerBLL(koreanWordRepository);
+        return controllerBLL.deactivate(koreanWordRepository.findOne(id), authToken);
     }
 
 }
