@@ -1,6 +1,6 @@
 package evansitzes.controllers;
 
-import evansitzes.ControllerBLL;
+import evansitzes.WordResponse;
 import evansitzes.models.entities.KoreanWordEntity;
 import evansitzes.models.entities.WordEntity;
 import evansitzes.models.repositories.KoreanWordRepository;
@@ -8,8 +8,6 @@ import evansitzes.requests.WordRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * Created by evan on 4/6/16.
@@ -21,12 +19,11 @@ public class KoreanWordController {
     @Autowired
     private KoreanWordRepository koreanWordRepository;
 
-    private ControllerBLL controllerBLL;
-
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public List<KoreanWordEntity> listAll() {
-        return koreanWordRepository.findAllActive();
+    public WordResponse listAll(@RequestParam(value="level", required = false) final Integer level,
+                                    @RequestParam(value="category", required = false) final String category) {
+        return new WordResponse(new ControllerBLL(koreanWordRepository).list(level, category));
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -37,30 +34,29 @@ public class KoreanWordController {
 
     @RequestMapping(value = "/random", method = RequestMethod.GET)
     @ResponseBody
-    public WordEntity getRandom() {
-        controllerBLL = new ControllerBLL(koreanWordRepository);
-        return controllerBLL.getRandom(koreanWordRepository.findAllActive());
+    public WordEntity getRandom(@RequestParam(value="level", required = false) final Integer level,
+                                @RequestParam(value="category", required = false) final String category) {
+        return new ControllerBLL(koreanWordRepository).getRandom(level, category);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public Object create(@RequestBody final WordRequest request, @RequestHeader(value="Authorization") String authToken) {
-        controllerBLL = new ControllerBLL(koreanWordRepository);
-        return controllerBLL.buildEntity(new KoreanWordEntity(), request, authToken);
+        return new ControllerBLL(koreanWordRepository).buildEntity(new KoreanWordEntity(), request, authToken);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public Object update(@PathVariable(value="id") final long id, @RequestBody final WordRequest request, @RequestHeader(value="Authorization") final String authToken) {
-        controllerBLL = new ControllerBLL(koreanWordRepository);
-        return controllerBLL.buildEntity(koreanWordRepository.findOne(id), request, authToken);
+    public Object update(@PathVariable(value="id") final long id,
+                         @RequestBody final WordRequest request,
+                         @RequestHeader(value="Authorization") final String authToken) {
+        return new ControllerBLL(koreanWordRepository).buildEntity(koreanWordRepository.findOne(id), request, authToken);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public Object deactivate(@PathVariable(value="id") final long id, @RequestHeader(value="Authorization") final String authToken) {
-        controllerBLL = new ControllerBLL(koreanWordRepository);
-        return controllerBLL.deactivate(koreanWordRepository.findOne(id), authToken);
+        return new ControllerBLL(koreanWordRepository).deactivate(koreanWordRepository.findOne(id), authToken);
     }
 
 }

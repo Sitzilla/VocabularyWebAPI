@@ -1,4 +1,4 @@
-package evansitzes;
+package evansitzes.controllers;
 
 import evansitzes.models.entities.WordEntity;
 import evansitzes.models.repositories.WordRepository;
@@ -26,13 +26,14 @@ public class ControllerBLL {
         entity.setForeignWord(request.getForeignWord());
         entity.setEnglishWord(request.getEnglishWord());
         entity.setLevel(request.getLevel());
+        entity.setCategory(request.getCategory());
         entity.setActive(true);
 
         return repository.save(entity);
     }
 
-    public WordEntity getRandom(final List entities) {
-        List<WordEntity> list = entities;
+    public WordEntity getRandom(final Integer level, final String category) {
+        List<WordEntity> list = list(level, category);
         Random randomizer = new Random();
         return list.get(randomizer.nextInt(list.size()));
     }
@@ -41,5 +42,16 @@ public class ControllerBLL {
         assertAuthTokenIsValid(authToken);
         entity.setActive(false);
         return repository.save(entity);
+    }
+
+    public List<WordEntity> list(final Integer level, final String category) {
+        if (category != null && level != null) {
+            return  repository.findByLevelAndCategory(level, category);
+        } else if (category != null) {
+            return repository.findByCategory(category);
+        } else if (level != null) {
+            return repository.findByLevel(level);
+        }
+        return repository.findAllActive();
     }
 }

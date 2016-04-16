@@ -7,7 +7,8 @@ public class WordRequest {
 
     private String foreignWord;
     private String englishWord;
-    private String level;
+    private int level;
+    private String category;
 
     public String getForeignWord() {
         return foreignWord;
@@ -25,12 +26,20 @@ public class WordRequest {
         this.englishWord = englishWord;
     }
 
-    public String getLevel() {
+    public int getLevel() {
         return level;
     }
 
-    public void setLevel(String level) {
+    public void setLevel(int level) {
         this.level = level;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     @Override
@@ -38,7 +47,8 @@ public class WordRequest {
         return "WordRequest{" +
                 "foreignWord='" + foreignWord + '\'' +
                 ", englishWord='" + englishWord + '\'' +
-                ", level='" + level + '\'' +
+                ", level=" + level +
+                ", category='" + category + '\'' +
                 '}';
     }
 }

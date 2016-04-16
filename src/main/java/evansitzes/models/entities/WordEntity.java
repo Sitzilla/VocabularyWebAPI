@@ -23,7 +23,10 @@ public class WordEntity {
     private boolean active;
 
     @Column (name="level")
-    private String level;
+    private int level;
+
+    @Column (name="category")
+    private String category;
 
     public long getId() {
         return id;
@@ -57,11 +60,19 @@ public class WordEntity {
         this.active = active;
     }
 
-    public String getLevel() {
+    public int getLevel() {
         return level;
     }
 
-    public void setLevel(String level) {
+    public void setLevel(int level) {
         this.level = level;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
