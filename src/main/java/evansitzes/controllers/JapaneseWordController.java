@@ -1,12 +1,14 @@
 package evansitzes.controllers;
 
 import evansitzes.WordResponse;
+import evansitzes.controllers.bll.ControllerBLL;
+import evansitzes.exceptions.UnprocessableEntityException;
 import evansitzes.models.entities.JapaneseWordEntity;
 import evansitzes.models.entities.WordEntity;
+import evansitzes.models.repositories.CategoryRepository;
 import evansitzes.models.repositories.JapaneseWordRepository;
 import evansitzes.requests.WordRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +22,7 @@ public class JapaneseWordController {
     @Autowired
     private JapaneseWordRepository japaneseWordRepository;
     @Autowired
-    private FilterRegistrationBean myFilter;
+    private CategoryRepository categoryRepository;
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
@@ -45,6 +47,7 @@ public class JapaneseWordController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public Object create(@RequestBody final WordRequest request, @RequestHeader(value="Authorization") String authToken) {
+        assertValidRequest(request);
         return new ControllerBLL(japaneseWordRepository).buildEntity(new JapaneseWordEntity(), request, authToken);
     }
 
@@ -53,6 +56,7 @@ public class JapaneseWordController {
     public Object update(@PathVariable(value="id") final long id,
                          @RequestBody final WordRequest request,
                          @RequestHeader(value="Authorization") final String authToken) {
+        assertValidRequest(request);
         return new ControllerBLL(japaneseWordRepository).buildEntity(japaneseWordRepository.findOne(id), request, authToken);
     }
 
@@ -60,6 +64,16 @@ public class JapaneseWordController {
     @ResponseBody
     public Object deactivate(@PathVariable(value="id") final long id, @RequestHeader(value="Authorization") final String authToken) {
         return new ControllerBLL(japaneseWordRepository).deactivate(japaneseWordRepository.findOne(id), authToken);
+    }
+
+    private void assertValidRequest(final WordRequest request) {
+        if (request.getCategory() == null) {
+            throw new UnprocessableEntityException("Required parameter \"category\"");
+        }
+
+        if (categoryRepository.findByCategory(request.getCategory()) == null) {
+            throw new UnprocessableEntityException("Category <" + request.getCategory() + "> does not exists.");
+        }
     }
 
 }

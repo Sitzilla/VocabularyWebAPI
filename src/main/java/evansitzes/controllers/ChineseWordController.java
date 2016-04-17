@@ -1,8 +1,11 @@
 package evansitzes.controllers;
 
 import evansitzes.WordResponse;
+import evansitzes.controllers.bll.ControllerBLL;
+import evansitzes.exceptions.UnprocessableEntityException;
 import evansitzes.models.entities.ChineseWordEntity;
 import evansitzes.models.entities.WordEntity;
+import evansitzes.models.repositories.CategoryRepository;
 import evansitzes.models.repositories.ChineseWordRepository;
 import evansitzes.requests.WordRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,8 @@ public class ChineseWordController {
 
     @Autowired
     private ChineseWordRepository chineseWordRepository;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
@@ -41,6 +46,7 @@ public class ChineseWordController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public Object create(@RequestBody final WordRequest request, @RequestHeader(value="Authorization") String authToken) {
+        assertValidRequest(request);
         return new ControllerBLL(chineseWordRepository).buildEntity(new ChineseWordEntity(), request, authToken);
     }
 
@@ -49,6 +55,7 @@ public class ChineseWordController {
     public Object update(@PathVariable(value="id") final long id,
                          @RequestBody final WordRequest request,
                          @RequestHeader(value="Authorization") final String authToken) {
+        assertValidRequest(request);
         return new ControllerBLL(chineseWordRepository).buildEntity(chineseWordRepository.findOne(id), request, authToken);
     }
 
@@ -56,6 +63,16 @@ public class ChineseWordController {
     @ResponseBody
     public Object deactivate(@PathVariable(value="id") final long id, @RequestHeader(value="Authorization") final String authToken) {
         return new ControllerBLL(chineseWordRepository).deactivate(chineseWordRepository.findOne(id), authToken);
+    }
+
+    private void assertValidRequest(final WordRequest request) {
+        if (request.getCategory() == null) {
+            throw new UnprocessableEntityException("Required parameter \"category\"");
+        }
+
+        if (categoryRepository.findByCategory(request.getCategory()) == null) {
+            throw new UnprocessableEntityException("Category <" + request.getCategory() + "> does not exists.");
+        }
     }
 
 }

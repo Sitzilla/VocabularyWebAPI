@@ -1,5 +1,6 @@
 package evansitzes.controllers;
 
+import evansitzes.controllers.bll.ControllerBLL;
 import evansitzes.models.entities.WordEntity;
 import evansitzes.models.repositories.JapaneseWordRepository;
 import org.apache.log4j.Logger;

@@ -1,4 +1,4 @@
-package evansitzes.controllers;
+package evansitzes.controllers.bll;
 
 import evansitzes.models.entities.WordEntity;
 import evansitzes.models.repositories.WordRepository;
