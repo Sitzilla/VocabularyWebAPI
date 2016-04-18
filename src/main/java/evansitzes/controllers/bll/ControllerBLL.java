@@ -54,4 +54,12 @@ public class ControllerBLL {
         }
         return repository.findAllActive();
     }
+
+    public List<String> getCategories(Integer level) {
+        if (level != null) {
+            return repository.findCategoriesByLevel(level);
+        }
+
+        return repository.findCategories();
+    }
 }

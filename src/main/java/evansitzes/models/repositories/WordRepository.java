@@ -23,4 +23,10 @@ public interface WordRepository<entity extends WordEntity> extends JpaRepository
 
     @Query("select e from #{#entityName} e where e.level = (:level) and e.category = (:category) and e.active = true")
     List<entity> findByLevelAndCategory(@Param("level") int level, @Param("category") String category);
+
+    @Query("select e.category from #{#entityName} e where e.active = true group by e.category")
+    List<String> findCategories();
+
+    @Query("select e.category from #{#entityName} e where e.active = true and e.level = (:level) group by e.category")
+    List<String> findCategoriesByLevel(@Param("level") int level);
 }

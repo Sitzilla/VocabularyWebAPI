@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by evan on 4/6/16.
  */
@@ -41,6 +43,12 @@ public class ChineseWordController {
     public WordEntity getRandom(@RequestParam(value="level", required = false) final Integer level,
                                 @RequestParam(value="category", required = false) final String category) {
         return new ControllerBLL(chineseWordRepository).getRandom(level, category);
+    }
+
+    @RequestMapping(value = "/categories", method = RequestMethod.GET)
+    @ResponseBody
+    public List<String> getCategories(@RequestParam(value="level", required = false) final Integer level) {
+        return new ControllerBLL(chineseWordRepository).getCategories(level);
     }
 
     @RequestMapping(method = RequestMethod.POST)
