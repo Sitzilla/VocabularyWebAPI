@@ -1,5 +1,6 @@
 package evansitzes.controllers.bll;
 
+import evansitzes.models.entities.KoreanWordEntity;
 import evansitzes.models.entities.WordEntity;
 import evansitzes.models.repositories.WordRepository;
 import evansitzes.requests.WordRequest;
@@ -33,8 +34,8 @@ public class ControllerBLL {
     }
 
     public WordEntity getRandom(final Integer level, final String category) {
-        List<WordEntity> list = list(level, category);
-        Random randomizer = new Random();
+        final List<WordEntity> list = list(level, category);
+        final Random randomizer = new Random();
         return list.get(randomizer.nextInt(list.size()));
     }
 
@@ -55,11 +56,16 @@ public class ControllerBLL {
         return repository.findAllActive();
     }
 
-    public List<String> getCategories(Integer level) {
+    public List<String> getCategories(final Integer level) {
         if (level != null) {
             return repository.findCategoriesByLevel(level);
         }
 
         return repository.findCategories();
+    }
+
+    public Object increaseKnowledgeCount(final WordEntity entity) {
+        entity.setKnowledgeCount(entity.getKnowledgeCount() + 1);
+        return repository.save(entity);
     }
 }

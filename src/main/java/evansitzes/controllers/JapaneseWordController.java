@@ -74,6 +74,12 @@ public class JapaneseWordController {
         return new ControllerBLL(japaneseWordRepository).deactivate(japaneseWordRepository.findOne(id), authToken);
     }
 
+    @RequestMapping(value = "/{id}/increase", method = RequestMethod.PUT)
+    @ResponseBody
+    public Object update(@PathVariable(value="id") final long id) {
+        return new ControllerBLL(japaneseWordRepository).increaseKnowledgeCount(japaneseWordRepository.findOne(id));
+    }
+
     private void assertValidRequest(final WordRequest request) {
         if (request.getCategory() == null) {
             throw new UnprocessableEntityException("Required parameter \"category\"");

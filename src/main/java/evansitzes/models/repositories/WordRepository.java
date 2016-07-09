@@ -12,21 +12,21 @@ import java.util.List;
  */
 public interface WordRepository<entity extends WordEntity> extends JpaRepository<entity, Long> {
 
-    @Query("select e from #{#entityName} e where e.active = true")
+    @Query("select e from #{#entityName} e where e.active = true and e.knowledgeCount < 5")
     List<entity> findAllActive();
 
-    @Query("select e from #{#entityName} e where e.level = (:level) and e.active = true")
+    @Query("select e from #{#entityName} e where e.level = (:level) and e.active = true and e.knowledgeCount < 5")
     List<entity> findByLevel(@Param("level") int level);
 
-    @Query("select e from #{#entityName} e where e.category = (:category) and e.active = true")
+    @Query("select e from #{#entityName} e where e.category = (:category) and e.active = true and e.knowledgeCount < 5")
     List<entity> findByCategory(@Param("category") String category);
 
-    @Query("select e from #{#entityName} e where e.level = (:level) and e.category = (:category) and e.active = true")
+    @Query("select e from #{#entityName} e where e.level = (:level) and e.category = (:category) and e.active = true and e.knowledgeCount < 5")
     List<entity> findByLevelAndCategory(@Param("level") int level, @Param("category") String category);
 
-    @Query("select e.category from #{#entityName} e where e.active = true group by e.category")
+    @Query("select e.category from #{#entityName} e where e.active = true and e.knowledgeCount < 5 group by e.category")
     List<String> findCategories();
 
-    @Query("select e.category from #{#entityName} e where e.active = true and e.level = (:level) group by e.category")
+    @Query("select e.category from #{#entityName} e where e.active = true and e.level = (:level) and e.knowledgeCount < 5 group by e.category")
     List<String> findCategoriesByLevel(@Param("level") int level);
 }

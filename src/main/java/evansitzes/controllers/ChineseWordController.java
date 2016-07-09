@@ -73,6 +73,12 @@ public class ChineseWordController {
         return new ControllerBLL(chineseWordRepository).deactivate(chineseWordRepository.findOne(id), authToken);
     }
 
+    @RequestMapping(value = "/{id}/increase", method = RequestMethod.PUT)
+    @ResponseBody
+    public Object update(@PathVariable(value="id") final long id) {
+        return new ControllerBLL(chineseWordRepository).increaseKnowledgeCount(chineseWordRepository.findOne(id));
+    }
+
     private void assertValidRequest(final WordRequest request) {
         if (request.getCategory() == null) {
             throw new UnprocessableEntityException("Required parameter \"category\"");

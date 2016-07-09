@@ -28,6 +28,9 @@ public class WordEntity {
     @Column (name="category")
     private String category;
 
+    @Column (name="knowledge_count")
+    private int knowledgeCount;
+
     public long getId() {
         return id;
     }
@@ -74,5 +77,13 @@ public class WordEntity {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public int getKnowledgeCount() {
+        return knowledgeCount;
+    }
+
+    public void setKnowledgeCount(int knowledgeCount) {
+        this.knowledgeCount = knowledgeCount;
     }
 }
