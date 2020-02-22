@@ -3,3 +3,4 @@
 target/*
 .idea/*
 VocabularyTerms.iml
+src/main/resources/application.properties
